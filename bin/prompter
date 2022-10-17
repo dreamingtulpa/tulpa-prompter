@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+require "prompter"
+require "optparse"
+
+# Set options
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: prompter path/prompts.txt [options]"
+
+  opts.on("--interval i", "prompt frame interval") do |v|
+    options[:interval] = v.to_i
+  end
+
+  opts.on("--prefix prompt", "prompt prefix") do |v|
+    options[:prefix] = v
+  end
+
+  opts.on("--suffix prompt", "prompt suffix") do |v|
+    options[:suffix] = v
+  end
+
+  opts.on("--shuffle", "shuffle prompts") do |v|
+    options[:shuffle] = v
+  end
+end.parse!
+
+file_path = ARGV[0]
+options[:lines] = File.read(file_path).lines
+
+output = Prompter.call(options)
+
+# Only works with OSX for now
+IO.popen('pbcopy', 'w') { |pipe| pipe.puts output }
+
