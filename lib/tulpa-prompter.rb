@@ -6,7 +6,7 @@ module TulpaPrompter
   def self.call(options)
     options[:interval] ||= 15
     options[:interval] = options[:interval].to_i
-    options[:lines].shuffle! if options[:shuffle]
+    options[:lines].shuffle! if options[:shuffle].to_s.downcase == "true" || options[:shuffle].to_s == "1"
 
     animation_prompts = "animation_prompts = {\n"
     options[:lines].each_with_index do |line, index|
