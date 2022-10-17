@@ -5,6 +5,7 @@ module TulpaPrompter
 
   def self.call(options)
     options[:interval] ||= 15
+    options[:interval] = options[:interval].to_i
     options[:lines].shuffle! if options[:shuffle]
 
     animation_prompts = "animation_prompts = {\n"
