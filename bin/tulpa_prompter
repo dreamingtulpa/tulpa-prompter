@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require "tulpa_prompter"
+require_relative "../lib/tulpa_prompter"
 require "optparse"
 
 # Set options
