@@ -2,9 +2,9 @@
 
 require "test_helper"
 
-class PrompterTest < Minitest::Test
+class TulpaPrompterTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Prompter::VERSION
+    refute_nil ::TulpaPrompter::VERSION
   end
 
   def test_should_generate_prompts
@@ -15,7 +15,7 @@ class PrompterTest < Minitest::Test
       interval: 20
     }
 
-    output = Prompter.call(options)
+    output = TulpaPrompter.call(options)
 
     assert_equal "animation_prompts = {\n  0: \"portrait painting prompt #1 by greg rutkowski\",\n  20: \"portrait painting prompt #2 by greg rutkowski\",\n  40: \"portrait painting prompt #3 by greg rutkowski\",\n}", output
   end

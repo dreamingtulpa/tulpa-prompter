@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    prompter (0.1.0)
+    tulpa-prompter (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -36,9 +36,9 @@ PLATFORMS
 
 DEPENDENCIES
   minitest (~> 5.0)
-  prompter!
   rake (~> 13.0)
   rubocop (~> 1.21)
+  tulpa-prompter!
 
 BUNDLED WITH
    2.3.7

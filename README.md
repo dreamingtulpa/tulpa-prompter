@@ -1,6 +1,6 @@
-# Animation Prompter
+# TulpaPrompter
 
-This is just a simple Ruby gem implementing the functionality of [Animation Prompter](https://dreamingtulpa.com/tools/animation-prompter) on my website.
+This is just a simple Ruby gem implementing the functionality of [Animation Prompter](https://dreamingtulpa.com/tools/prompter) on my website.
 
 ## Installation
 
@@ -16,12 +16,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install prompter
+    $ gem install tulpa-prompter
 
 ## Usage
 
 ```
-json_string = Prompter.call(
+json_string = TulpaPrompter.call(
   lines: ["prompt #1", "prompt #2", "prompt #3"],
   prefix: "portrait of ",
   suffix: " by greg rutkowski",
@@ -33,7 +33,7 @@ json_string = Prompter.call(
 Or you can use it as a CLI:
 
 ```
-bin/prompter path/to/prompts.txt --prefix "portrait of " --suffix " by greg rutkowski" --interval 15 --shuffle
+bin/tulpa_prompter path/to/prompts.txt --prefix "portrait of " --suffix " by greg rutkowski" --interval 15 --shuffle
 ```
 
 This copies the output to the clipboard on macOS. Doesn't work for other platforms yet. If you want it, submit a PR.

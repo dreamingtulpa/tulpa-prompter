@@ -1,6 +1,6 @@
-require_relative "prompter/version"
+require_relative "tulpa_prompter/version"
 
-module Prompter
+module TulpaPrompter
   class Error < StandardError; end
 
   def self.call(options)

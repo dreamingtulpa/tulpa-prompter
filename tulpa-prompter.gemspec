@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-require_relative "lib/prompter/version"
+require_relative "lib/tulpa_prompter/version"
 
 Gem::Specification.new do |spec|
   spec.name = "tulpa-prompter"
-  spec.version = Prompter::VERSION
+  spec.version = TulpaPrompter::VERSION
   spec.authors = ["Dreaming Tulpa"]
   spec.email = ["hey@dreamingtulpa.com"]
 
   spec.summary = "CLI tool to build animation prompts for AI notebooks like Deforum Stable Diffusion"
   # spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "https://github.com/dreamingtulpa/prompter"
+  spec.homepage = "https://github.com/dreamingtulpa/tulpa_prompter"
   spec.required_ruby_version = ">= 2.6.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/dreamingtulpa/prompter"
-  spec.metadata["changelog_uri"] = "https://github.com/dreamingtulpa/prompter/blob/master/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/dreamingtulpa/tulpa_prompter"
+  spec.metadata["changelog_uri"] = "https://github.com/dreamingtulpa/tulpa_prompter/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

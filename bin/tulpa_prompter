@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
-require "prompter"
+require "tulpa_prompter"
 require "optparse"
 
 # Set options
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: prompter path/prompts.txt [options]"
+  opts.banner = "Usage: tulpa_prompter path/prompts.txt [options]"
 
   opts.on("--interval i", "prompt frame interval") do |v|
     options[:interval] = v.to_i
@@ -27,7 +27,7 @@ end.parse!
 file_path = ARGV[0]
 options[:lines] = File.read(file_path).lines
 
-output = Prompter.call(options)
+output = TulpaPrompter.call(options)
 
 # Only works with OSX for now
 IO.popen('pbcopy', 'w') { |pipe| pipe.puts output }
