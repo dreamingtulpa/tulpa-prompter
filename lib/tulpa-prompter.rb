@@ -4,19 +4,30 @@ module TulpaPrompter
   class Error < StandardError; end
 
   def self.call(options)
+    options[:format] ||= {}
+    options[:format][:frame] ||= 'integer'
+
     options[:interval] ||= 15
     options[:interval] = options[:interval].to_i
     options[:lines].shuffle! if options[:shuffle].to_s.downcase == "true" || options[:shuffle].to_s == "1"
 
-    animation_prompts = "animation_prompts = {\n"
-    options[:lines].each_with_index do |line, index|
+    prompts = options[:lines].map.with_index do |line, index|
       frame = index * options[:interval]
-      prompt = line.strip
+      frame = "\"#{frame}\"" if options[:format][:frame] == 'string'
 
+      prompt = line.strip
       prompt = options[:prefix].to_s + prompt + options[:suffix].to_s
       prompt = prompt.gsub("\"", "\\\"")
-      animation_prompts << "  #{frame}: \"#{prompt}\",\n"
+
+      "  #{frame}: \"#{prompt}\""
     end
-    animation_prompts << "}"
+
+    output = ""
+    output << "#{options[:format][:assign]} = " if options[:format][:assign]
+    output << "{\n"
+    output << prompts.join(",\n")
+    output << "\n}"
+
+    output
   end
 end
