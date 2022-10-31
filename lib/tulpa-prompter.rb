@@ -4,8 +4,8 @@ module TulpaPrompter
   class Error < StandardError; end
 
   def self.call(options)
-    options[:format] ||= {}
-    options[:format][:frame] ||= 'integer'
+    options[:format] ||= :deforum_colab
+    options[:format] = parse_format_options(options[:format]) if options[:format].is_a?(Symbol)
 
     options[:interval] ||= 15
     options[:interval] = options[:interval].to_i
@@ -13,7 +13,7 @@ module TulpaPrompter
 
     prompts = options[:lines].map.with_index do |line, index|
       frame = index * options[:interval]
-      frame = "\"#{frame}\"" if options[:format][:frame] == 'string'
+      frame = "\"#{frame}\"" if options[:format][:frame] == :string
 
       prompt = line.strip
       prompt = options[:prefix].to_s + prompt + options[:suffix].to_s
@@ -29,5 +29,19 @@ module TulpaPrompter
     output << "\n}"
 
     output
+  end
+
+  def self.parse_format_options(format)
+    format_options = {}
+
+    case format
+    when :deforum_webui
+      format_options[:frame] = :string
+    else
+      format_options[:assign] = "animation_prompts"
+      format_options[:frame] = :integer
+    end
+
+    format_options
   end
 end

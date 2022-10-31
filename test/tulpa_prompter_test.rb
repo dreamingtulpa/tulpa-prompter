@@ -12,10 +12,7 @@ class TulpaPrompterTest < Minitest::Test
       lines: ["prompt #1", "prompt #2", "prompt #3"],
       prefix: "portrait painting ",
       suffix: " by greg rutkowski",
-      interval: 20,
-      format: {
-        assign: "animation_prompts"
-      }
+      interval: 20
     }
 
     output = TulpaPrompter.call(options)
@@ -29,9 +26,7 @@ class TulpaPrompterTest < Minitest::Test
       prefix: "portrait painting ",
       suffix: " by greg rutkowski",
       interval: 20,
-      format: {
-        frame: 'string'
-      }
+      format: :deforum_webui
     }
 
     output = TulpaPrompter.call(options)

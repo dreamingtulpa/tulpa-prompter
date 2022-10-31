@@ -26,7 +26,8 @@ json_string = TulpaPrompter.call(
   prefix: "portrait of ",
   suffix: " by greg rutkowski",
   interval: 15,
-  shuffle: false
+  shuffle: false,
+  format: :deforum_colab # default
 )
 ```
 
